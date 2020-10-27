@@ -52,4 +52,16 @@ export class TasklistService {
     return this.http.post<Task>(this.server + 'delete', searchTask);
   }
 
+  getOne(taskId):Observable<Task>
+  {
+    const searchTask = {
+      id: taskId,
+      title: 'not set',
+      status: false,
+      date : new Date()
+    };
+
+    return this.http.post<Task>(this.server+'getone', searchTask);
+  }
+
 }

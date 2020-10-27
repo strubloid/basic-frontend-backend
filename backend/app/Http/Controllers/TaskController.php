@@ -36,6 +36,16 @@ class TaskController extends Controller
     }
 
     /**
+    * Method that will get al tasks
+    */
+    public function getOne(Request $request)
+    {
+        $id = $request->input('id');
+        $task = Task::find($id);
+        return response()->json($task);
+    }
+
+    /**
      *   Method that will delete the task
     */
     public function delete(Request $request)

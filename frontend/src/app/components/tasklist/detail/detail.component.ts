@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute} from "@angular/router";
+import { TasklistService} from "../../../service/tasklist.service";
+import {Task} from "../Task";
 
 @Component({
   selector: 'app-detail',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailComponent implements OnInit {
 
-  constructor() { }
+  task: Task;
+  constructor(private route:ActivatedRoute, private tls:TasklistService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void
+  {
+    this.route.params.subscribe((data) => {
+
+      this.tls.getOne(data.id).subscribe((foundTask) => {
+        this.task = foundTask;
+        console.log(foundTask);
+        console.log(this.task.title);
+      });
+    });
   }
 
 }

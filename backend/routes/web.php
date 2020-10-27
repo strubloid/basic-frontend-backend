@@ -23,3 +23,5 @@ Route::get('get', 'TaskController@get');
 
 Route::post('delete', 'TaskController@delete');
 
+Route::post('getone', 'TaskController@getone');
+
