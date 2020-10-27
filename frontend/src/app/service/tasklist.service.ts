@@ -52,7 +52,7 @@ export class TasklistService {
     return this.http.post<Task>(this.server + 'delete', searchTask);
   }
 
-  getOne(taskId):Observable<Task>
+  getOne(taskId): Observable<Task>
   {
     const searchTask = {
       id: taskId,
@@ -61,7 +61,7 @@ export class TasklistService {
       date : new Date()
     };
 
-    return this.http.post<Task>(this.server+'getone', searchTask);
+    return this.http.post<Task>(this.server + 'getone', searchTask);
   }
 
 }

@@ -40,7 +40,7 @@ export class ItemComponent implements OnInit {
   {
     // console.log(this.task.id);
     this.tls.delete(this.task.id).subscribe((data) => {
-      console.log('Task deleted: ' + data.id);
+      console.log('Task deleted:');
       this.msg.setMessage('Task Deleted');
     });
   }
