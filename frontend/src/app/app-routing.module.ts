@@ -1,7 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {LoginComponent} from './components/login/login.component';
+import {TasklistComponent} from './components/tasklist/tasklist.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'tasklist', component: TasklistComponent }
+];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -10,6 +10,7 @@ import { FormComponent } from './components/tasklist/form/form.component';
 import { ListComponent } from './components/tasklist/list/list.component';
 import { ItemComponent } from './components/tasklist/list/item/item.component';
 import { DetailComponent } from './components/tasklist/detail/detail.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { DetailComponent } from './components/tasklist/detail/detail.component';
     FormComponent,
     ListComponent,
     ItemComponent,
-    DetailComponent
+    DetailComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
