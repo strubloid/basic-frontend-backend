@@ -15,7 +15,6 @@ export class DetailComponent implements OnInit {
     private route: ActivatedRoute,
     private tls: TasklistService
   ) {
-    this.task = new Task();
   }
 
   ngOnInit(): void
