@@ -12,6 +12,9 @@ import { ItemComponent } from './components/tasklist/list/item/item.component';
 import { DetailComponent } from './components/tasklist/detail/detail.component';
 import { LoginComponent } from './components/login/login.component';
 
+import {FormsModule} from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +29,9 @@ import { LoginComponent } from './components/login/login.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
