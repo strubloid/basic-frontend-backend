@@ -113,3 +113,23 @@ ng g c components/tasklist/form && ng g c components/tasklist/list && ng g c com
 npm install @angular/http@latest
 ```
 This command it is to install the http package from Angular
+
+
+# Tasklist structure
+This project will contain table structure:
+* id
+* title
+* status
+* date
+
+
+# Components
+```
+Header
+    TaskList
+        Form
+        List
+        Details
+    Login
+Footer
+```
