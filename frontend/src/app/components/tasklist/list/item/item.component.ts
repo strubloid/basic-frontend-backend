@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Task } from '../../Task';
 import {formatDate} from '@angular/common';
+import { TasklistService  } from "../../../../service/tasklist.service";
 
 @Component({
   selector: 'app-item',
@@ -11,7 +12,7 @@ export class ItemComponent implements OnInit {
 
   @Input() task: Task;
 
-  constructor() { }
+  constructor(private tls: TasklistService) { }
 
   ngOnInit(): void {
   }
@@ -29,5 +30,16 @@ export class ItemComponent implements OnInit {
 
     // console.log(formattedDate);
     return formattedDate;
+  }
+
+  /**
+   * This will remove an element from the list of tasks.
+   */
+  deleteItem = () =>
+  {
+    // console.log(this.task.id);
+    this.tls.delete(this.task.id).subscribe((data) => {
+      console.log('Task deleted: ' + data.id);
+    });
   }
 }

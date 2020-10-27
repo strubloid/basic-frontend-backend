@@ -36,4 +36,20 @@ export class TasklistService {
     return this.http.get<Task[]>(this.server + 'get');
   }
 
+  /**
+   * This will delete a specific task.
+   * @param taskId
+   */
+  delete(taskId): Observable<Task>
+  {
+    const searchTask = {
+      id: taskId,
+      title: 'not set',
+      status: false,
+      date : new Date()
+    };
+
+    return this.http.post<Task>(this.server + 'delete', searchTask);
+  }
+
 }

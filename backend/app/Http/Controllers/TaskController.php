@@ -7,6 +7,9 @@ use App\Models\Task;
 
 class TaskController extends Controller
 {
+    /**
+    * Method that will add a new task
+    */
     public function add(Request $request)
     {
         $title = $request->input('title');
@@ -23,9 +26,28 @@ class TaskController extends Controller
         return $task;
     }
 
-    function get()
+    /**
+    * Method that will get al tasks
+    */
+    public function get()
     {
         $allTasks = Task::all();
         return response()->json($allTasks);
+    }
+
+    /**
+     *   Method that will delete the task
+    */
+    public function delete(Request $request)
+    {
+
+        $id = $request->input('id');
+
+        $task = Task::find($id);
+        $task->delete();
+
+        return array(
+            'id' => $id
+        );
     }
 }
