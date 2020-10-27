@@ -25,7 +25,15 @@ export class TasklistService {
   // tslint:disable-next-line:ban-types
   addTask(title): Observable<Object> {
     const newTask = new Task(title);
-    return this.http.post(this.server + 'add', newTask);
+    return this.http.post<Task>(this.server + 'add', newTask);
+  }
+
+  /**
+   * This will load all tasks from Laravel Project
+   */
+  getTasks(): Observable<Task[]>
+  {
+    return this.http.get<Task[]>(this.server + 'get');
   }
 
 }

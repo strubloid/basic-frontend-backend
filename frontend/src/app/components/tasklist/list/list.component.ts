@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Task } from '../../tasklist/Task';
+import { TasklistService } from "../../../service/tasklist.service";
 
 @Component({
   selector: 'app-list',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  constructor() { }
+  tasks: Task[] = [];
+
+  constructor(private tasklistService: TasklistService) { }
 
   ngOnInit(): void {
+    this.loadTasks();
+  }
+
+  /**
+   * This will load all tasks from Laravel Project
+   */
+  loadTasks()
+  {
+    this.tasklistService.getTasks().subscribe((all) => {
+      this.tasks = all;
+      console.log(this.tasks);
+    });
   }
 
 }

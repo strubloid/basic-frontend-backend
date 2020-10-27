@@ -7,19 +7,25 @@ use App\Models\Task;
 
 class TaskController extends Controller
 {
-        public function add(Request $request)
-        {
-            $title = $request->input('title');
-            $status = $request->input('status');
-            $date = $request->input('date');
+    public function add(Request $request)
+    {
+        $title = $request->input('title');
+        $status = $request->input('status');
+        $date = $request->input('date');
 
-            $task = new Task();
-            $task->title = $title;
-            $task->status = $status;
-            $task->date = $date;
+        $task = new Task();
+        $task->title = $title;
+        $task->status = $status;
+        $task->date = $date;
 
-            $task->save();
+        $task->save();
 
-            return $task;
-        }
+        return $task;
+    }
+
+    function get()
+    {
+        $allTasks = Task::all();
+        return response()->json($allTasks);
+    }
 }

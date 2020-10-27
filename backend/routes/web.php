@@ -18,3 +18,6 @@ Route::get('/', function () {
 });
 
 Route::post('add', 'TaskController@add');
+
+Route::get('get', 'TaskController@get');
+

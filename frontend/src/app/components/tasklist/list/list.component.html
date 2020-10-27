@@ -1,1 +1,9 @@
-<p>list works!</p>
+<div class="list-group mt-4">
+  <h3>TaskList</h3>
+</div>
+
+<ul class="list-group mt-2">
+  <li class="list-group-item" *ngFor="let task of tasks">
+    <app-item [task]="task"></app-item>
+  </li>
+</ul>
