@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Task } from '../../tasklist/Task';
-import { TasklistService } from "../../../service/tasklist.service";
+import { TasklistService } from '../../../service/tasklist.service';
+import { MessageService } from '../../../service/message.service';
 
 @Component({
   selector: 'app-list',
@@ -11,10 +12,19 @@ export class ListComponent implements OnInit {
 
   tasks: Task[] = [];
 
-  constructor(private tasklistService: TasklistService) { }
+  constructor(
+    private tasklistService: TasklistService,
+    private msg: MessageService
+  ) {
+
+  }
 
   ngOnInit(): void {
     this.loadTasks();
+
+    this.msg.getMessage().subscribe((data) => {
+      this.loadTasks();
+    });
   }
 
   /**
@@ -24,7 +34,8 @@ export class ListComponent implements OnInit {
   {
     this.tasklistService.getTasks().subscribe((all) => {
       this.tasks = all;
-      console.log(this.tasks);
+      // If you want to check all tasks
+      // console.log(this.tasks);
     });
   }
 

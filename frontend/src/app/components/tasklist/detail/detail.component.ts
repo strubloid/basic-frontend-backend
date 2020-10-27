@@ -19,8 +19,8 @@ export class DetailComponent implements OnInit {
 
       this.tls.getOne(data.id).subscribe((foundTask) => {
         this.task = foundTask;
-        console.log(foundTask);
-        console.log(this.task.title);
+        // console.log(foundTask);
+        // console.log(this.task.title);
       });
     });
   }

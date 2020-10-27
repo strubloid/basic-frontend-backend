@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Task } from '../../Task';
-import {formatDate} from '@angular/common';
-import { TasklistService  } from "../../../../service/tasklist.service";
+import { formatDate } from '@angular/common';
+import { TasklistService  } from '../../../../service/tasklist.service';
+import { MessageService } from '../../../../service/message.service';
 
 @Component({
   selector: 'app-item',
@@ -12,7 +13,7 @@ export class ItemComponent implements OnInit {
 
   @Input() task: Task;
 
-  constructor(private tls: TasklistService) { }
+  constructor(private tls: TasklistService,  private msg: MessageService) { }
 
   ngOnInit(): void {
   }
@@ -40,6 +41,7 @@ export class ItemComponent implements OnInit {
     // console.log(this.task.id);
     this.tls.delete(this.task.id).subscribe((data) => {
       console.log('Task deleted: ' + data.id);
+      this.msg.setMessage('Task Deleted');
     });
   }
 }

@@ -6,7 +6,9 @@
     <label for="task">Task Name:</label>
     <input type="text" name="title" id="task" class="form-control" placeholder="Insert a task name"
            [(ngModel)]="title"
+           [ngClass]="{'is-invalid' : title==='' && formSubmitted }"
     />
+    <div class="invalid-feedback">Task can't be empty</div>
   </div>
   <button class="btn btn-success">Add Class</button>
 </form>
