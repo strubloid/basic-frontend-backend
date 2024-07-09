@@ -1,4 +1,4 @@
-# blocworx-test
+# Basic Frontend Backend
 This is a test for the company Blockworx, it's basically a frontend using angular, and a backend using a laravel project.
 
 ## How to run the backend
